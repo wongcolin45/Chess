@@ -25,8 +25,10 @@ public abstract class AbstractPiece implements Piece {
     if (!onBoard(r, c)) {
       return;
     }
+
     Position check = new Position(r, c);
-    boolean captureAvailable = !board.isEmpty(check);
+
+    boolean captureAvailable = !board.isEmpty(check) && board.getPiece(check).getColor() != color;
     if (board.isEmpty(check) || captureAvailable) {
       moves.add(check);
     }
@@ -41,7 +43,10 @@ public abstract class AbstractPiece implements Piece {
     return this.color;
   }
 
-
+  @Override
+  public String toString() {
+    return symbol;
+  }
 
 
 

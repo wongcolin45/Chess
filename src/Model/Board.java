@@ -8,6 +8,11 @@ import Model.Pieces.Piece;
 public interface Board extends ViewableBoard {
 
   /**
+   * Sets the pieces on the board
+   */
+  void setPieces();
+
+  /**
    * Checks is position is empty;
    * @param pos the position to check
    * @return true if empty, otherwise false
@@ -22,12 +27,6 @@ public interface Board extends ViewableBoard {
    */
   Piece getPiece(Position pos);
 
-  /**
-   * Checks if position has a valid piece to select.
-   * @param pos the position to check
-   * @return true if it contains your piece, otherwise false
-   */
-  boolean isValidPieceSelection(Position pos);
 
 
   /**
@@ -36,6 +35,11 @@ public interface Board extends ViewableBoard {
    * @throws IllegalArgumentException there is no piece at the position / it is an opposing players piece
    */
   void selectedPiece(Position pos);
+
+  /**
+   * Unselects the current piece.
+   */
+  void unselectedPiece();
 
   /**
    * This moves the piece to the given position.
@@ -58,6 +62,8 @@ public interface Board extends ViewableBoard {
    * @throws IllegalStateException if the game is not over
    */
   GameResult getGameResult();
+
+
 
 
 }

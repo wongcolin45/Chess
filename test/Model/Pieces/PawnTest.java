@@ -3,6 +3,8 @@ import Model.Board;
 import Model.ChessBoard;
 import Model.Color;
 import Model.Position;
+import View.ChessTerminalView;
+import View.ChessView;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -61,6 +63,8 @@ public class PawnTest {
     Assert.assertEquals(1, moves.size());
     Position forward1 = new Position("f7");
     Assert.assertTrue(moves.contains(forward1));
+
+    ChessView v = new ChessTerminalView(board);
   }
 
   @Test

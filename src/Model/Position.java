@@ -13,16 +13,16 @@ public class Position {
   private final String notation;
 
   public Position(int row, int col) {
+
+
     this.row = row;
     this.col = col;
 
     char file = Integer.toString(8 - row).charAt(0);
-    // 97 i s 'a'
-    // 0 = 48
-    // 48 -> 97
+
     int ascii = col + '0';
     char rank = (char) (ascii + 49);
-    this.notation = Character.toString(rank) + Character.toString(file);
+    this.notation = rank + Character.toString(file);
   }
 
   public Position(String notation) {
@@ -33,6 +33,11 @@ public class Position {
     this.row = 8 - Character.getNumericValue(rank);
     this.col = file - 'a';
 
+
+  }
+
+  public boolean onBoard() {
+    return 0 <= row && row < 8 && 0 <= col && col < 8;
   }
 
   public int getRow() {
@@ -43,9 +48,7 @@ public class Position {
     return col;
   }
 
-  public boolean offGrid() {
-    return row < -1 || row >= 8 || col < 0 || col >= 8;
-  }
+
 
   @Override
   public String toString() {

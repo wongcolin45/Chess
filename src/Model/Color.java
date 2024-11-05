@@ -10,4 +10,9 @@ public enum Color {
   public Color opposing() {
     return (this == WHITE) ? BLACK : WHITE;
   }
+
+  @Override
+  public String toString() {
+    return (this == WHITE) ? "white" : "black";
+  }
 }

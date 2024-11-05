@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.List;
+
 public interface ViewableBoard {
 
 
@@ -10,8 +12,14 @@ public interface ViewableBoard {
   Color getTurn();
 
   /**
-   * Gets the grid representation as a string 2d array.
+   * Gets all the possible moves for the selected piece at that position.
+   * If no piece is selected an empty list is given.
+   */
+  List<Position> getPossibleMoves();
+
+  /**
+   * Gets the String grid of the board.
    * @return the grid
    */
-  String[][] getGridString();
+  String[][] getTextGrid();
 }

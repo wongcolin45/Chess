@@ -31,5 +31,22 @@ public class BoardSquare implements Square {
   @Override
   public void setPiece(Piece piece) {
     this.piece = piece;
+    occupied = true;
   }
+
+  @Override
+  public void clear() {
+    piece = null;
+    occupied = false;
+  }
+
+  @Override
+  public String toString() {
+    if (occupied) {
+      return piece.toString();
+
+    }
+    return " ";
+  }
+
 }

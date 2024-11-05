@@ -30,7 +30,6 @@ public class Knight extends AbstractPiece {
     int r = pos.getRow();
     int c = pos.getCol();
     for (int i = 0; i < 8; i++) {
-      Position check = new Position( r+ rowIters[i], c + colIters[i]);
       checkValidMove(board, moves, pos, r + rowIters[i], c + colIters[i]);
     }
     return moves;

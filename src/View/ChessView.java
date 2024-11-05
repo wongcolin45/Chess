@@ -6,6 +6,7 @@ public interface ChessView {
 
   void render();
 
+
   void flip();
 
 }

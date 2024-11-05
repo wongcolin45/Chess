@@ -32,16 +32,17 @@ public class Pawn extends AbstractPiece {
 
   }
 
-  protected void checkOpenMove(Board board, List<Position> moves, Position pos, int r, int c) {
+  protected void checkOpenMove(Board board, List<Position> moves, int r, int c) {
     Position check = new Position(r, c);
     if (onBoard(r,c) && board.isEmpty(check)) {
       moves.add(check);
     }
   }
 
-  protected void checkCapture(Board board, List<Position> moves, Position pos,  int r, int c) {
+  protected void checkCapture(Board board, List<Position> moves, int r, int c) {
     Position check = new Position(r, c);
-    if (onBoard(r, c) && !board.isEmpty(pos) && board.getPiece(pos).getColor() == color.opposing()) {
+
+    if (onBoard(r, c) && !board.isEmpty(check) && board.getPiece(check).getColor() == color.opposing()) {
       moves.add(check);
     }
   }
@@ -57,21 +58,18 @@ public class Pawn extends AbstractPiece {
 
     // Check first move
     if ((color == Color.WHITE && r == 6) || (color == Color.BLACK && r == 1)) {
-      checkOpenMove(board, moves, pos, r + 2 * forward, c);
+      checkOpenMove(board, moves, r + 2 * forward, c);
     }
     // Check moving forward
-    checkOpenMove(board, moves, pos, r + forward, c);
+    checkOpenMove(board, moves, r + forward, c);
     // Check diagonal captures
-    for (int i = -1; i <= 1; i += 2) {
-      checkCapture(board, moves, pos, r + forward, c + i);
+    for (int i = -1; i <= 1; i+= 2) {
+      checkCapture(board, moves, r + forward, c + i);
     }
     return moves;
   }
 
-  @Override
-  public String toString() {
-    return symbol;
-  }
+
 
 
 }

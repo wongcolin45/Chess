@@ -31,4 +31,8 @@ public interface Square {
    */
   void setPiece(Piece piece);
 
+  /**
+   * Removes the piece from the square.
+   */
+  void clear();
 }
